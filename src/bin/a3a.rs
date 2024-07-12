@@ -12,10 +12,10 @@
 
 fn main() {
     let bool_var = false;
+
     if bool_var == true {
         println!("hello");
     } else {
         println!("goodbye");
     }
-
 }
