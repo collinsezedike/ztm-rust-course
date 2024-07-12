@@ -9,4 +9,25 @@
 // * Create a function to display the quantity, with the struct as a parameter
 // * Create a function to display the id number, with the struct as a parameter
 
-fn main() {}
+struct GroceryItem {
+    quantity: i32,
+    id: i32,
+}
+
+
+fn display_quantity(grocery_item: &GroceryItem) {
+    println!("Quantity: {:?}", grocery_item.quantity);
+}
+
+// If I make choose not to make GroceryItem a borrowed argument, 
+// the code would still work provided I call this function last.
+fn display_id(grocery_item: &GroceryItem) {
+    println!("ID number: {:?}", grocery_item.id);
+}
+
+
+fn main() {
+    let chocolate = GroceryItem{ quantity: 2, id: 3 };
+    display_quantity(&chocolate);
+    display_id(&chocolate);
+}
