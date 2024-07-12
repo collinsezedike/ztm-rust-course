@@ -19,5 +19,4 @@ fn main() {
         3 => println!("three"),
         _ => println!("other"),
     }
-
 }
