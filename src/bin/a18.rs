@@ -16,4 +16,32 @@
 //   * For the Ok variant, print any message you want
 //   * For the Err variant, print out the error message
 
-fn main() {}
+#[derive(Debug)]
+struct Adult {
+    name: String,
+    age: i32,
+}
+
+impl Adult {
+    fn new(name: &str, age: i32) -> Result<Self, String> {
+        if age >= 21 {
+            return Ok(Self { name: String::from(name), age })
+        } else {
+            return Err("An adult's age must be greater than or equal to 21".to_owned())
+        }
+    }
+}
+
+fn main() {
+    let person1 = Adult::new("James", 22);
+    let person2 = Adult::new("April", 12);
+    
+    let people = vec![person1, person2];
+
+    for person in people {
+        match person {
+            Ok(adult) => println!("{:?}", adult),
+            Err(msg) => println!("{:?}", msg),
+        };
+    };
+}
